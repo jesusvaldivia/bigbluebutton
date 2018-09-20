@@ -2,7 +2,7 @@ import RedisPubSub from '/imports/startup/server/redis';
 import Polls from '/imports/api/polls';
 import { check } from 'meteor/check';
 
-export default function initiatePoll(credentials, pollType) {
+export default function initiatePoll(credentials, pollType, pollId) {
   const REDIS_CONFIG = Meteor.settings.private.redis;
   const CHANNEL = REDIS_CONFIG.channels.toAkkaApps;
   const EVENT_NAME = 'StartPollReqMsg';
@@ -17,7 +17,7 @@ export default function initiatePoll(credentials, pollType) {
 
   const payload = {
     requesterId: requesterUserId,
-    pollId: `${meetingId}/1/${requesterUserId}`,
+    pollId: `${pollId}/${new Date().getTime()}`,
     pollType,
   };
 

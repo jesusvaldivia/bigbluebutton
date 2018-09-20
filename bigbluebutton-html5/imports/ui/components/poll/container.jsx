@@ -1,11 +1,16 @@
 import React from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
 import { makeCall } from '/imports/ui/services/api';
+import Presentations from '/imports/api/presentations';
+import PresentationAreaService from '/imports/ui/components/presentation/service';
 import Poll from './component';
 
-const PollContainer = ({ ...props }) => <Poll {...props} />;
+export default PollContainer = () => {
+  const currentPresentation = Presentations.findOne({
+    current: true,
+  });
 
-export default withTracker(() => {
+  const currentSlide = PresentationAreaService.getCurrentSlide(currentPresentation.podId);
+
   const pollTypes = {
     YN: 'YN', // Yes,No
     TF: 'TF', // True,False
@@ -15,10 +20,14 @@ export default withTracker(() => {
     A5: 'A-5', // A,B,C,D,E
   };
 
-  const startPoll = type => makeCall('initiatePoll', type);
+  const startPoll = type => makeCall('initiatePoll', type, currentSlide.id);
 
-  return {
-    pollTypes,
-    startPoll,
-  };
-})(PollContainer);
+  return (
+    <Poll
+      {...{
+            pollTypes,
+            startPoll,
+        }}
+    />
+  );
+};
