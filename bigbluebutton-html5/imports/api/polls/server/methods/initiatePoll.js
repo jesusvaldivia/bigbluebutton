@@ -11,6 +11,7 @@ export default function initiatePoll(credentials, pollType, pollId) {
 
   check(meetingId, String);
   check(requesterUserId, String);
+  check(pollId, String);
   check(pollType, String);
 
   if (Polls.findOne({})) Polls.remove({});
