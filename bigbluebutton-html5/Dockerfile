@@ -28,11 +28,11 @@ RUN cd /app/bundle/programs/server \
 
 WORKDIR /app/bundle
 
-ENV MONGO_URL=mongodb://mongo:27017/html5client \
-    PORT=3000 \
-    ROOT_URL=http://localhost:3000 \
+ENV MONGO_URL=mongodb://mongo_user:WxzGLb9Njip7@10.142.0.3:27017/html5client \
+    PORT=80 \
+    ROOT_URL=http://localhost:80 \
     METEOR_SETTINGS_MODIFIER=.
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD ["docker-entrypoint.sh"]
