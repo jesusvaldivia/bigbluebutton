@@ -375,7 +375,7 @@
     },
 
     "redis": {
-      "host": "127.0.0.1",
+      "host": "10.0.0.3",
       "post": "6379",
       "timeout": 5000,
       "debug": true,
