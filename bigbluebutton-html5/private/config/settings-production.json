@@ -72,7 +72,7 @@
     },
 
     "kurento": {
-      "wsUrl": "HOST",
+      "wsUrl": "wss://35.237.195.147/bbb-webrtc-sfu",
       "chromeDefaultExtensionKey": "akgoaoikmbmhcopjgakkcepdgdgkjfbc",
       "chromeDefaultExtensionLink": "https://chrome.google.com/webstore/detail/bigbluebutton-screenshare/akgoaoikmbmhcopjgakkcepdgdgkjfbc",
       "chromeExtensionKey": "KEY",
